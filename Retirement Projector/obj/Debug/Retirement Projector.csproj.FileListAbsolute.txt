@@ -1,9 +1,0 @@
-c:\users\styxut\documents\visual studio 2013\Projects\Retirement Projector\Retirement Projector\bin\Debug\Retirement Projector.exe.config
-c:\users\styxut\documents\visual studio 2013\Projects\Retirement Projector\Retirement Projector\bin\Debug\Retirement Projector.exe
-c:\users\styxut\documents\visual studio 2013\Projects\Retirement Projector\Retirement Projector\bin\Debug\Retirement Projector.pdb
-c:\users\styxut\documents\visual studio 2013\Projects\Retirement Projector\Retirement Projector\obj\Debug\Retirement_Projector.Properties.Resources.resources
-c:\users\styxut\documents\visual studio 2013\Projects\Retirement Projector\Retirement Projector\obj\Debug\Retirement Projector.csproj.GenerateResource.Cache
-c:\users\styxut\documents\visual studio 2013\Projects\Retirement Projector\Retirement Projector\obj\Debug\Retirement Projector.exe
-c:\users\styxut\documents\visual studio 2013\Projects\Retirement Projector\Retirement Projector\obj\Debug\Retirement Projector.pdb
-c:\users\styxut\documents\visual studio 2013\Projects\Retirement Projector\Retirement Projector\obj\Debug\Retirement_Projector.RetirementProjector.resources
-c:\users\styxut\documents\visual studio 2013\Projects\Retirement Projector\Retirement Projector\obj\Debug\Retirement Projector.csprojResolveAssemblyReference.cache
