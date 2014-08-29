@@ -8,48 +8,79 @@ namespace Retirement_Projector
 {
     abstract class Account
     {
+        /// <summary>
+        /// Retirement Account (Abstract)
+        /// </summary>
+        /// <param name="_AccountValue">Current account value.</param>
+        /// <param name="_AvailabilityAge">Age at which full amount is available.</param>
+        /// <param name="_ARR">Anual Rate of Return.</param>
+        /// <param name="_AccountName">Name of retirement account.</param>
+        /// <param name="_MonthlyContribution">Amount contributed each month.</param>
+        protected Account(double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution)
+        {
+            AccountValue = _AccountValue;
+            AccountName = _AccountName;
+            AvailabilityAge = _AvailabilityAge;
+            AnnualReturnRate = _ARR;
+            MonthlyContribution = _MonthlyContribution;
+        }
 
-        private double preRetirementValue;
-        private double postRetirementValue;
+        private double accountValue;
         private string accountName;
+        private double availabilityAge;
+        private double annualReturnRate;
+        private double monthlyContribution;
 
-	    public string AccountName
+        private double MonthlyContribution
+        {
+            get { return monthlyContribution; }
+            set { monthlyContribution = value; }
+        }
+        
+        private double AnnualReturnRate
+        {
+            get { return annualReturnRate; }
+            set { annualReturnRate = value; }
+        }
+        
+        private double AvailabilityAge
+        {
+            get { return availabilityAge; }
+            set { availabilityAge = value; }
+        }
+
+        public string AccountName
 	    {
 		    get { return accountName;}
 		    private set { accountName = value;}
 	    }
 	
-	    public double PostRetirementValue
+	    public double AccountValue
 	    {
-		    get { return postRetirementValue;}
-		    private set { postRetirementValue = value;}
+		    get { return accountValue;}
+		    private set { accountValue = value;}
 	    }
-
-	    public double PreRetirementValue
-	    {
-		    get { return preRetirementValue;}
-		    private set { preRetirementValue = value;}
-	    }
-		
         
-        public virtual void AddMonthlyContribution(int ContributionAmount)
+        private void AddMonthlyContribution(double ContributionAmount)
         {
-            PreRetirementValue += ContributionAmount;
+            AccountValue += ContributionAmount;
         }
 
-        public virtual void AddMonthlyROI(double ReturnRate)
+        private void AddMonthlyROI(double ReturnRate)
         {
-            PreRetirementValue += PreRetirementValue * ReturnRate;
-            PostRetirementValue += PostRetirementValue * ReturnRate;
+            AccountValue += AccountValue * ReturnRate;
         }
 
         public virtual void DeductMonthlyExpenses(int MonthlyExpense)
         {
-            PostRetirementValue -= MonthlyExpense;
+            AccountValue -= MonthlyExpense;
         }
 
-        public virtual void OutputStatus()
-        { 
+        public virtual void ProgressMonth()
+        {
+            AddMonthlyContribution(MonthlyContribution);
+            AddMonthlyROI(AnnualReturnRate / 12);
         }
+
     }
 }
