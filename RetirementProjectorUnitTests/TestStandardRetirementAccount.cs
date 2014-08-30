@@ -8,7 +8,7 @@ namespace RetirementProjectorUnitTests
     [TestFixture]
     public class RetirementProjectorUnitTests
     {
-        Account retirementAccount;
+        AccountBase retirementAccount;
 
         [SetUp]
         public void SetUp()

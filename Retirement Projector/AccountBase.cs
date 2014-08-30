@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetirementProjector
 {
-    public abstract class Account
+    public abstract class AccountBase
     {
         /// <summary>
         /// Retirement Account (Abstract)
@@ -16,7 +16,7 @@ namespace RetirementProjector
         /// <param name="_ARR">Anual Rate of Return.</param>
         /// <param name="_AccountName">Name of retirement account.</param>
         /// <param name="_MonthlyContribution">Amount contributed each month.</param>
-        protected Account(double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution)
+        protected AccountBase(double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution)
         {
             AccountValue = _AccountValue;
             AccountName = _AccountName;

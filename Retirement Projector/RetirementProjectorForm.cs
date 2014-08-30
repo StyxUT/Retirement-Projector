@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,7 +28,7 @@ namespace RetirementProjector
             //ToDo: create class for reverse mortgate
             //ToDo: create class for "typical" investment account
 
-            Account account = new RothIRA(25000, 75000, 59.5, 0.08, "Vanguard Roth IRA", 458.33);
+            AccountBase account = new RothIRA(25000, 75000, 59.5, 0.08, "Vanguard Roth IRA", 458.33);
             MessageBox.Show(String.Format("Account Name:  {0}\nAccount Value:  {1}", account.AccountName.ToString(), account.AccountValue.ToString()));
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetirementProjector
 {
-    public class RothIRA : Account
+    public class RothIRA : AccountBase
     {
         public RothIRA(double _PreRetirementAccountValue, double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution)
             : base(_AccountValue, _AvailabilityAge, _ARR, _AccountName, _MonthlyContribution)
