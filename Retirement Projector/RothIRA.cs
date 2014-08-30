@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Retirement_Projector
+namespace RetirementProjector
 {
     public class RothIRA : Account
     {

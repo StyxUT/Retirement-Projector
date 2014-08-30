@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Retirement_Projector
+namespace RetirementProjector
 {
     static class Program
     {

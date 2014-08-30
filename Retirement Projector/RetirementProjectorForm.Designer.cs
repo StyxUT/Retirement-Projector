@@ -1,4 +1,4 @@
-﻿namespace Retirement_Projector
+﻿namespace RetirementProjector
 {
     partial class RetirementProjector
     {

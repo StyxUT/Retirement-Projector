@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Retirement_Projector
+namespace RetirementProjector
 {
     public partial class RetirementProjector : Form
     {

@@ -1,7 +1,6 @@
 ﻿using System;
-using Retirement_Projector;
+using RetirementProjector;
 using NUnit.Framework;
-using NSubstitute;
 
 
 namespace RetirementProjectorUnitTests
@@ -14,7 +13,7 @@ namespace RetirementProjectorUnitTests
         [SetUp]
         public void SetUp()
         {
-            retirementAccount = new RothIRA(1500, 10000, 59.5, 0.12, "Roth IRA 1", 100.00);
+            retirementAccount = new RothIRA(1500, 10000, 59.5, 0.12, "Standard Retirement Account", 100.00);
         }
 
         [Test]
@@ -26,7 +25,7 @@ namespace RetirementProjectorUnitTests
         [Test]
         public void AccountNameSet()
         {
-            Assert.AreEqual("Roth IRA 1", retirementAccount.AccountName);
+            Assert.AreEqual("Standard Retirement Account", retirementAccount.AccountName);
         }
 
         [Test]

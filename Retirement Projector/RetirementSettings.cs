@@ -2,7 +2,7 @@
 using System.Text;
 using System.ComponentModel;
 
-namespace Retirement_Projector
+namespace RetirementProjector
 {
     [DefaultPropertyAttribute("SaveOnClose")]
     public class RetirementSettings
