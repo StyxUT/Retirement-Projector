@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RetirementProjector
 {
-    class StandardRetirementAccount
+    class StandardRetirementAccount : AccountBase
     {
+
     }
 }

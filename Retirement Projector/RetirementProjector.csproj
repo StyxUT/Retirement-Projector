@@ -7,7 +7,7 @@
     <ProjectGuid>{174EC32D-B583-485D-8F28-4C8EF5EFFD2C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Retirement_Projector</RootNamespace>
+    <RootNamespace>RetirementProjector</RootNamespace>
     <AssemblyName>Retirement Projector</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -60,7 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
+    <Compile Include="AccountBase.cs" />
     <Compile Include="RothIRA.cs" />
     <Compile Include="RetirementProjectorForm.cs">
       <SubType>Form</SubType>
@@ -71,6 +71,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RetirementSettings.cs" />
+    <Compile Include="StandardRetirementAccount.cs" />
     <EmbeddedResource Include="RetirementProjectorForm.resx">
       <DependentUpon>RetirementProjectorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +83,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
