@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Retirement_Projector
 {
-    abstract class Account
+    public abstract class Account
     {
         /// <summary>
         /// Retirement Account (Abstract)
@@ -78,8 +78,9 @@ namespace Retirement_Projector
 
         public virtual void ProgressMonth()
         {
-            AddMonthlyContribution(MonthlyContribution);
+            // calcluate ROI before adding in monthly contribution
             AddMonthlyROI(AnnualReturnRate / 12);
+            AddMonthlyContribution(MonthlyContribution);
         }
 
     }

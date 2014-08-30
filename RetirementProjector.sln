@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Retirement Projector", "Retirement Projector\Retirement Projector.csproj", "{174EC32D-B583-485D-8F28-4C8EF5EFFD2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetirementProjector", "Retirement Projector\RetirementProjector.csproj", "{174EC32D-B583-485D-8F28-4C8EF5EFFD2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetirementProjectorUnitTests", "RetirementProjectorUnitTests\RetirementProjectorUnitTests.csproj", "{A7FC6103-2E48-45B9-B21B-CFDC8B726F1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{174EC32D-B583-485D-8F28-4C8EF5EFFD2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{174EC32D-B583-485D-8F28-4C8EF5EFFD2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{174EC32D-B583-485D-8F28-4C8EF5EFFD2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7FC6103-2E48-45B9-B21B-CFDC8B726F1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7FC6103-2E48-45B9-B21B-CFDC8B726F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7FC6103-2E48-45B9-B21B-CFDC8B726F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7FC6103-2E48-45B9-B21B-CFDC8B726F1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

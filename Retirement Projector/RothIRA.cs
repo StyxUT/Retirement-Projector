@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Retirement_Projector
 {
-    class RothIRA : Account
+    public class RothIRA : Account
     {
-        public RothIRA(double _PreRetirementAccountValue, double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution) : base(_AccountValue, _AvailabilityAge, _ARR, _AccountName, _MonthlyContribution)
+        public RothIRA(double _PreRetirementAccountValue, double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution)
+            : base(_AccountValue, _AvailabilityAge, _ARR, _AccountName, _MonthlyContribution)
         { }
 
         private int preRetirementAccountValue;
@@ -18,6 +19,5 @@ namespace Retirement_Projector
             get { return preRetirementAccountValue; }
             private set { preRetirementAccountValue = value; }
         }
-
     }
 }
