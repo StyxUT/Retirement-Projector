@@ -18,5 +18,10 @@ namespace RetirementProjector
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new RetirementProjector());
         }
+
+        public static void ProjectRetirement()
+        {
+            MessageBox.Show("ProjectRetiremnt(); called");
+        }
     }
 }

@@ -35,5 +35,10 @@ namespace RetirementProjector
             MessageBox.Show(String.Format("Account Name:  {0}\nAccount Value:  {1}", account.AccountName.ToString(), account.AccountValue.ToString()));
         }
 
+        private void ProjectRetirement_Click(object sender, EventArgs e)
+        {
+            Program.ProjectRetirement();
+        }
+
     }
 }

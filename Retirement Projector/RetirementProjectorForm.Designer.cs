@@ -30,6 +30,7 @@
         {
             this.RetirementProperties = new System.Windows.Forms.PropertyGrid();
             this.assumptionsButton = new System.Windows.Forms.Button();
+            this.ProjectRetirement = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // RetirementProperties
@@ -50,11 +51,22 @@
             this.assumptionsButton.UseVisualStyleBackColor = true;
             this.assumptionsButton.Click += new System.EventHandler(this.assumptionsButton_Click);
             // 
+            // ProjectRetirement
+            // 
+            this.ProjectRetirement.Location = new System.Drawing.Point(291, 329);
+            this.ProjectRetirement.Name = "ProjectRetirement";
+            this.ProjectRetirement.Size = new System.Drawing.Size(220, 23);
+            this.ProjectRetirement.TabIndex = 3;
+            this.ProjectRetirement.Text = "Project Retirement";
+            this.ProjectRetirement.UseVisualStyleBackColor = true;
+            this.ProjectRetirement.Click += new System.EventHandler(this.ProjectRetirement_Click);
+            // 
             // RetirementProjector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 456);
+            this.Controls.Add(this.ProjectRetirement);
             this.Controls.Add(this.assumptionsButton);
             this.Controls.Add(this.RetirementProperties);
             this.Name = "RetirementProjector";
@@ -67,6 +79,7 @@
 
         private System.Windows.Forms.Button assumptionsButton;
         public System.Windows.Forms.PropertyGrid RetirementProperties;
+        private System.Windows.Forms.Button ProjectRetirement;
     }
 }
 

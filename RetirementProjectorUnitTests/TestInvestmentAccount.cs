@@ -39,7 +39,7 @@ namespace RetirementProjectorUnitTests
             Assert.AreEqual(10200.00, rothIraAccount.AccountValue);
         }
 
-        [Test]
+        [Test] 
         public void RothIraAccountDeductMonthlyExpenses()
         {
             rothIraAccount.DeductMonthlyExpenses(2500);
