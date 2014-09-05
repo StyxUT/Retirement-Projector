@@ -7,7 +7,7 @@ namespace RetirementProjector
     [DefaultPropertyAttribute("SaveOnClose")]
     public class RetirementSettings
     {
-        private int age = 42;
+        private DateTime birthDate = DateTime.Parse("10/27/1972");
         private int ageAtRetirement = 50;
         private double inflationRate = 0.04;
         private int monthlyExpenses = 2000;
@@ -29,12 +29,11 @@ namespace RetirementProjector
             set { inflationRate = value; }
         }
 
-        [DefaultValue(41),
-        DescriptionAttribute("Your curent age.")]
-        public int Age
+        [DescriptionAttribute("That date you were born.")]
+        public DateTime BirthDate
         {
-            get { return age; }
-            set { age = value; }
+            get { return birthDate; }
+            set { birthDate = value; }
         }
 
         [DefaultValueAttribute(55),
