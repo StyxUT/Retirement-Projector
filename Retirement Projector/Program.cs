@@ -8,18 +8,21 @@ namespace RetirementProjector
 {
     static class Program
     {
-        static RetirementSettings rs;
+           
+        
+         
 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main()  
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RetirementProjector());
-            rs = new RetirementSettings();
+            RetirementProjector rp = new RetirementProjector();
+            Application.Run(rp);
+  
             
         }
 
@@ -39,9 +42,24 @@ namespace RetirementProjector
             AccountBase account3 = new InvestmentAccount(20000, 0, 0.14, "Fidelity IRA", 160);
             MessageBox.Show(String.Format("Account Name:  {0}\nAccount Value:  {1}", account.AccountName.ToString(), account.AccountValue.ToString()));
 
-            DateTime projectionDate = DateTime.Now.Date;
+           // DateTime retirementDate = new DateTime();
+            //retirementDate = 
+            //rs.BirthDate.AddMonths(714); // number of months from birth until age 59.5
+           // MessageBox.Show(rs.BirthDate.ToShortDateString());
             
-            //while (projectionDate < rs.BirthDate.)
+            DateTime projectionDate = DateTime.Now.Date;
+
+            //while (projectionDate < retirementDate)
+            //{
+            //    account.ProgressMonth();
+            //    account2.ProgressMonth();
+            //    account3.ProgressMonth();
+
+            //    projectionDate.AddMonths(1);
+            //}
+
+            Console.WriteLine("Date:  ", projectionDate);
+            Console.WriteLine("{0}:  {1};  {2}:  {3}; {4}:  {5};", account.AccountName, account.AccountValue, account2.AccountName, account2.AccountValue, account3.AccountName, account3.AccountValue);
         }
 
     }

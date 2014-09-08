@@ -19,9 +19,7 @@ namespace RetirementProjector
 
         private void assumptionsButton_Click(object sender, EventArgs e)
         {
-
-            RetirementProperties.Visible = true;
-
+            RetirementProperties.Visible = !RetirementProperties.Visible;
         }
 
         private void ProjectRetirement_Click(object sender, EventArgs e)
@@ -29,5 +27,11 @@ namespace RetirementProjector
             Program.ProjectRetirement();
         }
 
+        RetirementSettings settings;
+        private void RetirementProjector_Load(object sender, EventArgs e)
+        {
+            settings = new RetirementSettings();
+            RetirementProperties.SelectedObject = settings;
+        }
     }
 }

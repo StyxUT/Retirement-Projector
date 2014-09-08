@@ -71,6 +71,7 @@
             this.Controls.Add(this.RetirementProperties);
             this.Name = "RetirementProjector";
             this.Text = "Retirement Projector";
+            this.Load += new System.EventHandler(this.RetirementProjector_Load);
             this.ResumeLayout(false);
 
         }
