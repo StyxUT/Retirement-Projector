@@ -22,25 +22,19 @@ namespace RetirementProjector
             Application.SetCompatibleTextRenderingDefault(false);
             RetirementProjector rp = new RetirementProjector();
             Application.Run(rp);
-  
-            
+             
         }
 
         public static void ProjectRetirement()
         {
-            MessageBox.Show("ProjectRetiremnt(); called");
 
+            List<AccountBase> Accounts = new List<AccountBase>();
             //ToDo: relocate
             //ToDo: create class for reverse mortgate
 
-            AccountBase account = new RothIRA(25000, 75000, 59.5, 0.08, "Vanguard Roth IRA", 458.33);
-            MessageBox.Show(String.Format("Account Name:  {0}\nAccount Value:  {1}", account.AccountName.ToString(), account.AccountValue.ToString()));
-
-            AccountBase account2 = new InvestmentAccount(20000, 0, 0.14, "Lending Club", 160);
-            MessageBox.Show(String.Format("Account Name:  {0}\nAccount Value:  {1}", account.AccountName.ToString(), account.AccountValue.ToString()));
-
-            AccountBase account3 = new InvestmentAccount(20000, 0, 0.14, "Fidelity IRA", 160);
-            MessageBox.Show(String.Format("Account Name:  {0}\nAccount Value:  {1}", account.AccountName.ToString(), account.AccountValue.ToString()));
+            Accounts.Add(new RothIRA(25000, 75000, 59.5, 0.08, "Vanguard Roth IRA", 458.33));
+            Accounts.Add(new InvestmentAccount(20000, 0, 0.14, "Lending Club", 160));
+            Accounts.Add(new StandardRetirementAccount(20000, 0, 0.14, "Fidelity IRA", 160));
 
            // DateTime retirementDate = new DateTime();
             //retirementDate = 
@@ -58,8 +52,16 @@ namespace RetirementProjector
             //    projectionDate.AddMonths(1);
             //}
 
-            Console.WriteLine("Date:  ", projectionDate);
-            Console.WriteLine("{0}:  {1};  {2}:  {3}; {4}:  {5};", account.AccountName, account.AccountValue, account2.AccountName, account2.AccountValue, account3.AccountName, account3.AccountValue);
+            OutputAccountData(projectionDate);
+        }
+
+        private static void OutputAccountData(DateTime projectionDate)
+        {
+            foreach (account in Accounts)
+            {
+                Console.WriteLine("Date:  ", projectionDate);
+                Console.WriteLine("{0}:  {1};", account.AccountName, account.AccountValue);
+            }
         }
 
     }
