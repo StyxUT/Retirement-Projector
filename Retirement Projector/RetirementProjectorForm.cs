@@ -9,12 +9,16 @@ using System.Windows.Forms;
 
 namespace RetirementProjector
 {
-    public partial class RetirementProjector : Form
+    public partial class RetirementProjectorForm : Form
     {
-        public RetirementProjector()
+
+        RetirementSettings rs;
+
+        public RetirementProjectorForm(RetirementSettings retirementSettings)
         {
             InitializeComponent();
-            
+            rs = retirementSettings;
+            RetirementProperties.SelectedObject = rs;
         }
 
         private void assumptionsButton_Click(object sender, EventArgs e)
@@ -24,14 +28,8 @@ namespace RetirementProjector
 
         private void ProjectRetirement_Click(object sender, EventArgs e)
         {
-            Program.ProjectRetirement();
-        }
-
-        RetirementSettings settings;
-        private void RetirementProjector_Load(object sender, EventArgs e)
-        {
-            settings = new RetirementSettings();
-            RetirementProperties.SelectedObject = settings;
+            RetirementProjectorProcessor rpp = new RetirementProjectorProcessor(rs);
+            rpp.ProjectRetirement();
         }
     }
 }

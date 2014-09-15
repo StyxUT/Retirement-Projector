@@ -16,7 +16,7 @@ namespace RetirementProjector
         /// <param name="_ARR">Anual Rate of Return.</param>
         /// <param name="_AccountName">Name of retirement account.</param>
         /// <param name="_MonthlyContribution">Amount contributed each month.</param>
-        protected AccountBase(double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution)
+        protected AccountBase(double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution, double _MonthlyExpenses)
         {
             AccountValue = _AccountValue;
             AccountName = _AccountName;
@@ -83,5 +83,8 @@ namespace RetirementProjector
             AddMonthlyContribution(MonthlyContribution);
         }
 
+        public double MonthlyExpenses { get; set; }
+
+        public abstract bool CanWithdraw();
     }
 }

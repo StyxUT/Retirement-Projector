@@ -15,9 +15,9 @@ namespace RetirementProjectorUnitTests
         [SetUp]
         public void SetUp()
         {
-            rothIraAccount = new RothIRA(1500, 10000, 59.5, 0.12, "Roth IRA Account", 100.00);
-            investmentAccount = new InvestmentAccount(10000, 0.0, 0.12, "Investment Account", 100.00);
-            standardRetirementAccount = new StandardRetirementAccount(10000, 59.5, 0.12, "Standard Retirement Account", 100.00);
+            rothIraAccount = new RothIRA(1500, 10000, 59.5, 0.12, "Roth IRA Account", 100.00, 1000);
+            investmentAccount = new InvestmentAccount(10000, 0.0, 0.12, "Investment Account", 100.00, 1000);
+            standardRetirementAccount = new StandardRetirementAccount(10000, 59.5, 0.12, "Standard Retirement Account", 100.00, 1000);
         }
 
         [Test]

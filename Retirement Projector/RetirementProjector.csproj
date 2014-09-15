@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="AccountBase.cs" />
     <Compile Include="InvestmentAccount.cs" />
+    <Compile Include="RetirementProjectorProcessor.cs" />
     <Compile Include="RothIRA.cs" />
     <Compile Include="RetirementProjectorForm.cs">
       <SubType>Form</SubType>

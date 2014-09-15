@@ -8,16 +8,17 @@ namespace RetirementProjector
 {
     public class RothIRA : AccountBase
     {
-        public RothIRA(double _PreRetirementAccountValue, double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution)
-            : base(_AccountValue, _AvailabilityAge, _ARR, _AccountName, _MonthlyContribution)
+        public RothIRA(double _PreRetirementAccountValue, double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution, double _MonthlyExpenses)
+            : base(_AccountValue, _AvailabilityAge, _ARR, _AccountName, _MonthlyContribution, _MonthlyExpenses)
         { }
 
-        private int preRetirementAccountValue;
+        public override bool CanWithdraw()
+        { 
+            //bool returnValue = false;
 
-        public int PreRetirementAccountValue
-        {
-            get { return preRetirementAccountValue; }
-            private set { preRetirementAccountValue = value; }
+            //if preRetirementAccountValue > MonthlyExpenses
+            //return returnValue;
+            return true;
         }
     }
 }
