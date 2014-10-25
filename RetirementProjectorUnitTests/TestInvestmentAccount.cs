@@ -21,6 +21,12 @@ namespace RetirementProjectorUnitTests
         }
 
         [Test]
+        public void RothIraCanWithdraw()
+        {
+            Assert.Fail("Unimplemented Test");
+        }
+
+        [Test]
         public void RothIraAccountValueSet()
         {
             Assert.AreEqual(10000, rothIraAccount.AccountValue);   
@@ -44,6 +50,12 @@ namespace RetirementProjectorUnitTests
         {
             rothIraAccount.DeductMonthlyExpenses(2500);
             Assert.AreEqual(7500.00, rothIraAccount.AccountValue);
+        }
+
+        [Test]
+        public void InvestmentAccountCanWithdraw()
+        {
+            Assert.Fail("Unimplemented Test");
         }
 
 
@@ -71,6 +83,12 @@ namespace RetirementProjectorUnitTests
         {
             investmentAccount.DeductMonthlyExpenses(2500);
             Assert.AreEqual(7500.00, investmentAccount.AccountValue);
+        }
+
+        [Test]
+        public void StandardRetirementAccountCanWithdraw()
+        {
+            Assert.Fail("Unimplemented Test");
         }
 
         [Test]

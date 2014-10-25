@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace RetirementProjector
 {
-    class RetirementProjectorProcessor
+    public class RetirementProjectorProcessor
     {
         RetirementSettings rs;
 
@@ -36,7 +36,7 @@ namespace RetirementProjector
         }
 
 
-        private void AdvanceMonth(List<AccountBase> Accounts)
+        public void AdvanceMonth(List<AccountBase> Accounts)
         {
             foreach (AccountBase account in Accounts)
             {
