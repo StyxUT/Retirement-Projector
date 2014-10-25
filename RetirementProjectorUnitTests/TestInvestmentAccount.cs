@@ -11,18 +11,21 @@ namespace RetirementProjectorUnitTests
         AccountBase rothIraAccount;
         AccountBase investmentAccount;
         AccountBase standardRetirementAccount;
+        RetirementSettings rs;
 
         [SetUp]
         public void SetUp()
         {
-            rothIraAccount = new RothIRA(1500, 10000, 59.5, 0.12, "Roth IRA Account", 100.00, 1000);
-            investmentAccount = new InvestmentAccount(10000, 0.0, 0.12, "Investment Account", 100.00, 1000);
-            standardRetirementAccount = new StandardRetirementAccount(10000, 59.5, 0.12, "Standard Retirement Account", 100.00, 1000);
+            rs = new RetirementSettings();
+            rothIraAccount = new RothIRA(rs, 1500, 10000, 59.5, 0.12, "Roth IRA Account", 100.00, 1000);
+            investmentAccount = new InvestmentAccount(rs, 10000, 0.0, 0.12, "Investment Account", 100.00, 1000);
+            standardRetirementAccount = new StandardRetirementAccount(rs, 10000, 59.5, 0.12, "Standard Retirement Account", 100.00, 1000);
         }
 
         [Test]
         public void RothIraCanWithdraw()
         {
+            //criteria:  age, can cover monthly expenses
             Assert.Fail("Unimplemented Test");
         }
 

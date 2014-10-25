@@ -22,9 +22,9 @@ namespace RetirementProjector
 
             List<AccountBase> accounts = new List<AccountBase>();
 
-            accounts.Add(new RothIRA(25000, 75000, 59.5, 0.08, "Vanguard Roth IRA", 458.33, rs.MonthlyExpenses));
-            accounts.Add(new InvestmentAccount(20000, 0, 0.14, "Lending Club", 160, rs.MonthlyExpenses));
-            accounts.Add(new StandardRetirementAccount(20000, 0, 0.14, "Fidelity IRA", 160, rs.MonthlyExpenses));
+            accounts.Add(new RothIRA(rs, 25000, 75000, 59.5, 0.08, "Vanguard Roth IRA", 458.33, rs.MonthlyExpenses));
+            accounts.Add(new InvestmentAccount(rs, 20000, 0, 0.14, "Lending Club", 160, rs.MonthlyExpenses));
+            accounts.Add(new StandardRetirementAccount(rs, 20000, 0, 0.14, "Fidelity IRA", 160, rs.MonthlyExpenses));
            
             DateTime retirementDate = rs.BirthDate.AddMonths((12 * 59) + 6); // number of months from birth until age 59.5
 

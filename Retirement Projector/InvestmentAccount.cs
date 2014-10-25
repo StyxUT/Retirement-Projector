@@ -8,8 +8,8 @@ namespace RetirementProjector
 {
     public class InvestmentAccount : AccountBase
     {
-        public InvestmentAccount(double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution, double _MonthlyExpenses)
-            : base(_AccountValue, _AvailabilityAge, _ARR, _AccountName, _MonthlyContribution, _MonthlyExpenses)
+        public InvestmentAccount(RetirementSettings _RetirementSettings, double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution, double _MonthlyExpenses)
+            : base(_RetirementSettings, _AccountValue, _AvailabilityAge, _ARR, _AccountName, _MonthlyContribution, _MonthlyExpenses)
         { }
 
         public override bool CanWithdraw()

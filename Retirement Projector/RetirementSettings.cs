@@ -11,9 +11,14 @@ namespace RetirementProjector
         private int ageAtRetirement = 50;
         private double inflationRate = 0.04;
         private int monthlyExpenses = 2000;
+                
+        
+        [DescriptionAttribute ("Current DateTime projections are based on.")]
+        public DateTime CurentProjectionDate { get; set; }
+
 
         [DefaultValue(2000),
-        DescriptionAttribute("Current monthy expenses.\nExclude any expenses that wont be present at retirment./n E.g Mortage, Work commute.")]
+        DescriptionAttribute("Current monthly expenses.\nExclude any expenses that wont be present at retirement./n E.g Mortgage, Work commute.")]
         public int MonthlyExpenses
         {
             get { return monthlyExpenses; }

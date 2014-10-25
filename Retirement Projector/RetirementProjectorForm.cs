@@ -19,6 +19,8 @@ namespace RetirementProjector
             InitializeComponent();
             rs = retirementSettings;
             RetirementProperties.SelectedObject = rs;
+
+            rs.CurentProjectionDate = DateTime.Today;
         }
 
         private void assumptionsButton_Click(object sender, EventArgs e)

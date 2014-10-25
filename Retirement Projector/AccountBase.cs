@@ -11,12 +11,13 @@ namespace RetirementProjector
         /// <summary>
         /// Retirement Account (Abstract)
         /// </summary>
+        /// <param name="_RetirementSettings">Global settings object</param>
         /// <param name="_AccountValue">Current account value.</param>
         /// <param name="_AvailabilityAge">Age at which full amount is available.</param>
         /// <param name="_ARR">Anual Rate of Return.</param>
         /// <param name="_AccountName">Name of retirement account.</param>
         /// <param name="_MonthlyContribution">Amount contributed each month.</param>
-        protected AccountBase(double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution, double _MonthlyExpenses)
+        protected AccountBase(RetirementSettings _RetirementSettings, double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution, double _MonthlyExpenses)
         {
             AccountValue = _AccountValue;
             AccountName = _AccountName;
