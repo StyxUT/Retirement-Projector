@@ -8,7 +8,7 @@ namespace RetirementProjector
 {
     public class InvestmentAccount : AccountBase
     {
-        public InvestmentAccount(RetirementSettings _RetirementSettings, double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution, double _MonthlyExpenses)
+        public InvestmentAccount(RetirementSettings _RetirementSettings, decimal _AccountValue, decimal _AvailabilityAge, decimal _ARR, string _AccountName, decimal _MonthlyContribution, decimal _MonthlyExpenses)
             : base(_RetirementSettings, _AccountValue, _AvailabilityAge, _ARR, _AccountName, _MonthlyContribution, _MonthlyExpenses)
         { }
 

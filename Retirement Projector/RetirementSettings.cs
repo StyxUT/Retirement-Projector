@@ -9,7 +9,7 @@ namespace RetirementProjector
     {
         private DateTime birthDate = DateTime.Parse("10/27/1972");
         private int ageAtRetirement = 50;
-        private double inflationRate = 0.04;
+        private decimal inflationRate = 0.04M;
         private int monthlyExpenses = 2000;
                 
         
@@ -30,7 +30,7 @@ namespace RetirementProjector
 
         [DefaultValue(0.04),
         DescriptionAttribute("Average inflation rate.")]
-        public double InflationRate
+        public decimal InflationRate
         {
             get { return inflationRate; }
             set { inflationRate = value; }

@@ -18,9 +18,10 @@ namespace RetirementProjectorUnitTests
         {
             rs = new RetirementSettings();
             rs.MonthlyExpenses = 2500;
-            rothIraAccount = new RothIRA(rs, 1500, 10000, 59.5, 0.12, "Roth IRA Account", 100.00, 1000);
-            investmentAccount = new InvestmentAccount(rs, 10000, 0.0, 0.12, "Investment Account", 100.00, 1000);
-            standardRetirementAccount = new StandardRetirementAccount(rs, 10000, 59.5, 0.12, "Standard Retirement Account", 100.00, 1000);
+            rs.CurentProjectionAge = 50;
+            rothIraAccount = new RothIRA(rs, 1500, 10000, 59.5M, 0.12M, "Roth IRA Account", 100.00M, 1000);
+            investmentAccount = new InvestmentAccount(rs, 10000, 0.0M, 0.12M, "Investment Account", 100.00M, 1000);
+            standardRetirementAccount = new StandardRetirementAccount(rs, 10000, 59.5M, 0.12M, "Standard Retirement Account", 100.00M, 1000);
         }
 
         [Test]
@@ -33,6 +34,75 @@ namespace RetirementProjectorUnitTests
             // Can not cover full monthly expenses
             rs.MonthlyExpenses = 99999999;
             Assert.False(rothIraAccount.CanWithdraw());
+        }
+
+        [Test]
+        public void RothIraCanWithdrawAge()
+        {
+            rs.MonthlyExpenses = 1;
+
+            // less than standard retirement age
+            rs.CurentProjectionAge = 50;
+            Assert.True(rothIraAccount.CanWithdraw());
+
+            // standard retirement age
+            rs.CurentProjectionAge = 59.5M; 
+            Assert.False(rothIraAccount.CanWithdraw());
+        }
+
+        [Test]
+        public void InvestmentAccountCanWithdrawAccountValue()
+        {
+            rs.CurentProjectionAge = 60;
+
+            // Can cover full monthly expense
+            rs.MonthlyExpenses = 1;
+            Assert.True(investmentAccount.CanWithdraw());
+
+            // Can not cover full monthly expenses
+            rs.MonthlyExpenses = 99999999;
+            Assert.False(investmentAccount.CanWithdraw());
+        }
+
+        [Test]
+        public void InvestmentAccountCanWithdrawAge()
+        {
+            rs.MonthlyExpenses = 1;
+
+            // less than standard retirement age
+            rs.CurentProjectionAge = 50;
+            Assert.True(investmentAccount.CanWithdraw());
+
+            // standard retirement age
+            rs.CurentProjectionAge = 59.5M;
+            Assert.False(investmentAccount.CanWithdraw());
+        }
+
+        [Test]
+        public void StandardRetirementAccountCanWithdrawValue()
+        {
+            rs.CurentProjectionAge = 60;
+            // Can cover full monthly expense
+            rs.MonthlyExpenses = 1;
+            Assert.True(standardRetirementAccount.CanWithdraw());
+
+            // Can not cover full monthly expenses
+            rs.MonthlyExpenses = 99999999;
+            Assert.False(standardRetirementAccount.CanWithdraw());
+        }
+
+        [Test]
+        public void StandardRetirementAccountCanWithdrawAge()
+        {
+            rs.MonthlyExpenses = 1;
+
+            // less than standard retirement age
+            rs.CurentProjectionAge = 50;
+            Assert.True(investmentAccount.CanWithdraw());
+
+            // standard retirement age
+            rs.CurentProjectionAge = 59.5M;
+            Assert.False(investmentAccount.CanWithdraw());
         }
 
         [Test]
@@ -62,13 +132,6 @@ namespace RetirementProjectorUnitTests
         }
 
         [Test]
-        public void InvestmentAccountCanWithdraw()
-        {
-            Assert.Fail("Unimplemented Test");
-        }
-
-
-        [Test]
         public void InvestmentAccountValueSet()
         {
             Assert.AreEqual(10000, investmentAccount.AccountValue);
@@ -92,12 +155,6 @@ namespace RetirementProjectorUnitTests
         {
             investmentAccount.DeductMonthlyExpenses();
             Assert.AreEqual(7500.00, investmentAccount.AccountValue);
-        }
-
-        [Test]
-        public void StandardRetirementAccountCanWithdraw()
-        {
-            Assert.Fail("Unimplemented Test");
         }
 
         [Test]

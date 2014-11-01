@@ -17,7 +17,7 @@ namespace RetirementProjector
         /// <param name="_ARR">Anual Rate of Return.</param>
         /// <param name="_AccountName">Name of retirement account.</param>
         /// <param name="_MonthlyContribution">Amount contributed each month.</param>
-        protected AccountBase(RetirementSettings _RetirementSettings, double _AccountValue, double _AvailabilityAge, double _ARR, string _AccountName, double _MonthlyContribution, double _MonthlyExpenses)
+        protected AccountBase(RetirementSettings _RetirementSettings, decimal _AccountValue, decimal _AvailabilityAge, decimal _ARR, string _AccountName, decimal _MonthlyContribution, decimal _MonthlyExpenses)
         {
             AccountValue = _AccountValue;
             AccountName = _AccountName;
@@ -27,27 +27,27 @@ namespace RetirementProjector
             rs = _RetirementSettings;
         }
 
-        private double accountValue;
+        private decimal accountValue;
         private string accountName;
-        private double availabilityAge;
-        private double annualReturnRate;
-        private double monthlyContribution;
+        private decimal availabilityAge;
+        private decimal annualReturnRate;
+        private decimal monthlyContribution;
         private RetirementSettings rs;
 
   
-        private double MonthlyContribution
+        private decimal MonthlyContribution
         {
             get { return monthlyContribution; }
             set { monthlyContribution = value; }
         }
         
-        private double AnnualReturnRate
+        private decimal AnnualReturnRate
         {
             get { return annualReturnRate; }
             set { annualReturnRate = value; }
         }
         
-        private double AvailabilityAge
+        private decimal AvailabilityAge
         {
             get { return availabilityAge; }
             set { availabilityAge = value; }
@@ -59,7 +59,7 @@ namespace RetirementProjector
 		    private set { accountName = value;}
 	    }
 	
-	    public double AccountValue
+	    public decimal AccountValue
 	    {
 		    get { return accountValue;}
 		    private set { accountValue = value;}
@@ -68,23 +68,19 @@ namespace RetirementProjector
         public virtual bool CanWithdraw()
         { 
             bool canWithdraw = false;
-            DateTime zeroTime = new DateTime(1, 1, 1);
-            TimeSpan span = rs.BirthDate.AddYears(rs.AgeAtRetirement) - rs.CurentProjectionDate;
-            
-            double ProjectionAge = (zeroTime + span).Year - 1;
 
-            if (ProjectionAge >= AvailabilityAge && AccountValue >= rs.MonthlyExpenses)
+            if (rs.CurentProjectionAge >= AvailabilityAge && AccountValue >= rs.MonthlyExpenses)
                 canWithdraw = true;
 
             return canWithdraw;
         }
 
-        private void AddMonthlyContribution(double ContributionAmount)
+        private void AddMonthlyContribution(decimal ContributionAmount)
         {
             AccountValue += ContributionAmount;
         }
 
-        private void AddMonthlyROI(double ReturnRate)
+        private void AddMonthlyROI(decimal ReturnRate)
         {
             AccountValue += AccountValue * ReturnRate;
         }
@@ -96,7 +92,7 @@ namespace RetirementProjector
 
         public virtual void ProgressMonth()
         {
-            // calcluate ROI before adding in monthly contribution
+            // calculate ROI before adding in monthly contribution
             AddMonthlyROI(AnnualReturnRate / 12);
             AddMonthlyContribution(MonthlyContribution);
         }

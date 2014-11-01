@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RetirementProjector.Helpers;
+using RetirementProjector;
 
 namespace RetirementProjector
 {
@@ -23,9 +23,9 @@ namespace RetirementProjector
 
             List<AccountBase> accounts = new List<AccountBase>();
 
-            accounts.Add(new RothIRA(rs, 25000, 75000, 59.5, 0.08, "Vanguard Roth IRA", 458.33, rs.MonthlyExpenses));
-            accounts.Add(new InvestmentAccount(rs, 20000, 0, 0.14, "Lending Club", 160, rs.MonthlyExpenses));
-            accounts.Add(new StandardRetirementAccount(rs, 20000, 0, 0.14, "Fidelity IRA", 160, rs.MonthlyExpenses));
+            accounts.Add(new RothIRA(rs, 25000, 75000, 59.5M, 0.08M, "Vanguard Roth IRA", 458.33M, rs.MonthlyExpenses));
+            accounts.Add(new InvestmentAccount(rs, 20000, 0M, 0.14M, "Lending Club", 160M, rs.MonthlyExpenses));
+            accounts.Add(new StandardRetirementAccount(rs, 20000, 0M, 0.14M, "Fidelity IRA", 160M, rs.MonthlyExpenses));
            
             DateTime retirementDate = rs.BirthDate.AddMonths((12 * 59) + 6); // number of months from birth until age 59.5
 
@@ -51,10 +51,10 @@ namespace RetirementProjector
             {
                 account.ProgressMonth();
                 OutputAccountData(account);
+                rs.CurentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
             }
         }
-
-
+        
         private void OutputAccountData(AccountBase Account)
         {
             MessageBox.Show(String.Format("Account Name:  {0}\nAccount Value:  {1}", Account.AccountName, Account.AccountValue));

@@ -4,6 +4,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 
 
+
 namespace RetirementProjectorUnitTests
 {
     [TestFixture]
@@ -11,16 +12,16 @@ namespace RetirementProjectorUnitTests
     {
         RetirementSettings rs;
         List<AccountBase> accounts = new List<AccountBase>();
-
+        
         [SetUp]
         public void SetUp()
         {
             RetirementProjectorProcessor rpp = new RetirementProjectorProcessor(new RetirementSettings());
             rs = new RetirementSettings();
 
-            accounts.Add(new RothIRA(rs, 1500, 10000, 59.5, 0.12, "Roth IRA Account", 100.00, 1000));
-            accounts.Add(new InvestmentAccount(rs, 10000, 0.0, 0.12, "Investment Account", 100.00, 1000));
-            accounts.Add(new StandardRetirementAccount(rs, 10000, 59.5, 0.12, "Standard Retirement Account", 100.00, 1000));
+            accounts.Add(new RothIRA(rs, 1500, 10000, 59.5M, 0.12M, "Roth IRA Account", 100.00M, 1000));
+            accounts.Add(new InvestmentAccount(rs, 10000, 0.0M, 0.12M, "Investment Account", 100.00M, 1000));
+            accounts.Add(new StandardRetirementAccount(rs, 10000, 59.5M, 0.12M, "Standard Retirement Account", 100.00M, 1000));
         }
 
         [Test]
@@ -32,9 +33,13 @@ namespace RetirementProjectorUnitTests
         }
 
         [Test]
-        public void RetirementAgeIsCalculated()
+        public void ProjectionAgeIsCalculated()
         {
-            Assert.Fail("Unimplemented Test");
+            rs.BirthDate = DateTime.Parse("10/10/1972");
+            rs.CurentProjectionDate = DateTime.Parse("10/10/2072");
+
+            rs.CurentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
+            Assert.AreEqual(rs.CurentProjectionAge, 100M);
         }
 
         [Test]

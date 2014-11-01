@@ -4,22 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetirementProjector.Helpers
+namespace RetirementProjector
 {
-    static class ProjectionHelpers
+    static public class ProjectionHelpers
     {
         public static decimal CalculateProjectionAge(DateTime birthDate, DateTime projectionDate)
         {
+            decimal projectionAge;
+            
+            projectionAge = (((projectionDate.Year - birthDate.Year) * 12) + projectionDate.Month - birthDate.Month) / 12;
 
-            //DateTime today = DateTime.Today;
-            //int age = today.Year - bday.Year;
-            //if (bday > today.AddYears(-age)) age--;
-
-            DateTime zeroTime = new DateTime(1, 1, 1);
-            TimeSpan span = projectionDate - birthDate;
-
-            decimal years = (zeroTime + span.tot) - 1;
-            return years;
+            return projectionAge;
+     
         }
     }
 }
