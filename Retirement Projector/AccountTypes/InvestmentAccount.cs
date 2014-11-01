@@ -12,9 +12,5 @@ namespace RetirementProjector
             : base(_RetirementSettings, _AccountValue, _AvailabilityAge, _ARR, _AccountName, _MonthlyContribution, _MonthlyExpenses)
         { }
 
-        public override bool CanWithdraw()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

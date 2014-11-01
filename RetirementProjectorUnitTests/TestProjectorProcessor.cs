@@ -36,22 +36,10 @@ namespace RetirementProjectorUnitTests
         public void ProjectionAgeIsCalculated()
         {
             rs.BirthDate = DateTime.Parse("10/10/1972");
-            rs.CurentProjectionDate = DateTime.Parse("10/10/2072");
+            rs.CurentProjectionDate = DateTime.Parse("4/10/2032");
 
             rs.CurentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
-            Assert.AreEqual(rs.CurentProjectionAge, 100M);
-        }
-
-        [Test]
-        public void NewTest1()
-        {
-            Assert.Fail("Unimplemented Test");
-        }
-
-        [Test]
-        public void NewTest()
-        {
-            Assert.Fail("Unimplemented Test");
+            Assert.AreEqual(rs.CurentProjectionAge, 59.5M);
         }
     }
 }

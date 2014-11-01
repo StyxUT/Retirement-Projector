@@ -27,12 +27,14 @@ namespace RetirementProjectorUnitTests
         [Test]
         public void RothIraCanWithdrawAccountValue()
         {
+            rs.CurentProjectionAge = 59.5M;
+
             // Can cover full monthly expense
             rs.MonthlyExpenses = 1;
             Assert.True(rothIraAccount.CanWithdraw());
 
             // Can not cover full monthly expenses
-            rs.MonthlyExpenses = 99999999;
+            rs.MonthlyExpenses = 999999999;
             Assert.False(rothIraAccount.CanWithdraw());
         }
 
@@ -42,18 +44,18 @@ namespace RetirementProjectorUnitTests
             rs.MonthlyExpenses = 1;
 
             // less than standard retirement age
-            rs.CurentProjectionAge = 50;
+            rs.CurentProjectionAge = 50.0M;
             Assert.True(rothIraAccount.CanWithdraw());
 
             // standard retirement age
             rs.CurentProjectionAge = 59.5M; 
-            Assert.False(rothIraAccount.CanWithdraw());
+            Assert.True(rothIraAccount.CanWithdraw());
         }
 
         [Test]
         public void InvestmentAccountCanWithdrawAccountValue()
         {
-            rs.CurentProjectionAge = 60;
+            rs.CurentProjectionAge = 60.0M;
 
             // Can cover full monthly expense
             rs.MonthlyExpenses = 1;
@@ -70,18 +72,18 @@ namespace RetirementProjectorUnitTests
             rs.MonthlyExpenses = 1;
 
             // less than standard retirement age
-            rs.CurentProjectionAge = 50;
+            rs.CurentProjectionAge = 59.4M;
             Assert.True(investmentAccount.CanWithdraw());
 
             // standard retirement age
             rs.CurentProjectionAge = 59.5M;
-            Assert.False(investmentAccount.CanWithdraw());
+            Assert.True(investmentAccount.CanWithdraw());
         }
 
         [Test]
         public void StandardRetirementAccountCanWithdrawValue()
         {
-            rs.CurentProjectionAge = 60;
+            rs.CurentProjectionAge = 60.0M;
             // Can cover full monthly expense
             rs.MonthlyExpenses = 1;
             Assert.True(standardRetirementAccount.CanWithdraw());
@@ -97,12 +99,12 @@ namespace RetirementProjectorUnitTests
             rs.MonthlyExpenses = 1;
 
             // less than standard retirement age
-            rs.CurentProjectionAge = 50;
+            rs.CurentProjectionAge = 59.5M;
             Assert.True(investmentAccount.CanWithdraw());
 
             // standard retirement age
-            rs.CurentProjectionAge = 59.5M;
-            Assert.False(investmentAccount.CanWithdraw());
+            rs.CurentProjectionAge = 59.4M;
+            Assert.True(investmentAccount.CanWithdraw());
         }
 
         [Test]

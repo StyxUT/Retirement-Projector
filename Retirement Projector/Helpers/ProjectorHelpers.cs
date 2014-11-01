@@ -12,7 +12,7 @@ namespace RetirementProjector
         {
             decimal projectionAge;
             
-            projectionAge = (((projectionDate.Year - birthDate.Year) * 12) + projectionDate.Month - birthDate.Month) / 12;
+            projectionAge = (((projectionDate.Year - birthDate.Year) * 12) + projectionDate.Month - birthDate.Month) / 12.0M;
 
             return projectionAge;
      

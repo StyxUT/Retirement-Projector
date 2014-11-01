@@ -10,13 +10,6 @@ namespace RetirementProjector
     {
         public StandardRetirementAccount(RetirementSettings _RetirementSettings, decimal _AccountValue, decimal _AvailabilityAge, decimal _ARR, string _AccountName, decimal _MonthlyContribution, decimal _MonthlyExpenses) 
             : base(_RetirementSettings, _AccountValue, _AvailabilityAge, _ARR, _AccountName, _MonthlyContribution, _MonthlyExpenses)
-        {
-           
-        }
-
-        public override bool CanWithdraw()
-        {
-            throw new NotImplementedException();
-        }
+        {   }
     }
 }
