@@ -17,16 +17,22 @@ namespace RetirementProjectorUnitTests
         public void SetUp()
         {
             rs = new RetirementSettings();
+            rs.MonthlyExpenses = 2500;
             rothIraAccount = new RothIRA(rs, 1500, 10000, 59.5, 0.12, "Roth IRA Account", 100.00, 1000);
             investmentAccount = new InvestmentAccount(rs, 10000, 0.0, 0.12, "Investment Account", 100.00, 1000);
             standardRetirementAccount = new StandardRetirementAccount(rs, 10000, 59.5, 0.12, "Standard Retirement Account", 100.00, 1000);
         }
 
         [Test]
-        public void RothIraCanWithdraw()
+        public void RothIraCanWithdrawAccountValue()
         {
-            //criteria:  age, can cover monthly expenses
-            Assert.Fail("Unimplemented Test");
+            // Can cover full monthly expense
+            rs.MonthlyExpenses = 1;
+            Assert.True(rothIraAccount.CanWithdraw());
+
+            // Can not cover full monthly expenses
+            rs.MonthlyExpenses = 99999999;
+            Assert.False(rothIraAccount.CanWithdraw());
         }
 
         [Test]
@@ -51,7 +57,7 @@ namespace RetirementProjectorUnitTests
         [Test] 
         public void RothIraAccountDeductMonthlyExpenses()
         {
-            rothIraAccount.DeductMonthlyExpenses(2500);
+            rothIraAccount.DeductMonthlyExpenses();
             Assert.AreEqual(7500.00, rothIraAccount.AccountValue);
         }
 
@@ -84,7 +90,7 @@ namespace RetirementProjectorUnitTests
         [Test]
         public void InvestmentAccountDeductMonthlyExpenses()
         {
-            investmentAccount.DeductMonthlyExpenses(2500);
+            investmentAccount.DeductMonthlyExpenses();
             Assert.AreEqual(7500.00, investmentAccount.AccountValue);
         }
 
@@ -116,7 +122,7 @@ namespace RetirementProjectorUnitTests
         [Test]
         public void StandardRetirementAccountDeductMonthlyExpenses()
         {
-            standardRetirementAccount.DeductMonthlyExpenses(2500);
+            standardRetirementAccount.DeductMonthlyExpenses();
             Assert.AreEqual(7500.00, standardRetirementAccount.AccountValue);
         }
         [TearDown]

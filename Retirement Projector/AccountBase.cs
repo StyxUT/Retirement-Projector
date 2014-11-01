@@ -24,6 +24,7 @@ namespace RetirementProjector
             AvailabilityAge = _AvailabilityAge;
             AnnualReturnRate = _ARR;
             MonthlyContribution = _MonthlyContribution;
+            rs = _RetirementSettings;
         }
 
         private double accountValue;
@@ -31,7 +32,9 @@ namespace RetirementProjector
         private double availabilityAge;
         private double annualReturnRate;
         private double monthlyContribution;
+        private RetirementSettings rs;
 
+  
         private double MonthlyContribution
         {
             get { return monthlyContribution; }
@@ -61,7 +64,21 @@ namespace RetirementProjector
 		    get { return accountValue;}
 		    private set { accountValue = value;}
 	    }
-        
+
+        public virtual bool CanWithdraw()
+        { 
+            bool canWithdraw = false;
+            DateTime zeroTime = new DateTime(1, 1, 1);
+            TimeSpan span = rs.BirthDate.AddYears(rs.AgeAtRetirement) - rs.CurentProjectionDate;
+            
+            double ProjectionAge = (zeroTime + span).Year - 1;
+
+            if (ProjectionAge >= AvailabilityAge && AccountValue >= rs.MonthlyExpenses)
+                canWithdraw = true;
+
+            return canWithdraw;
+        }
+
         private void AddMonthlyContribution(double ContributionAmount)
         {
             AccountValue += ContributionAmount;
@@ -72,9 +89,9 @@ namespace RetirementProjector
             AccountValue += AccountValue * ReturnRate;
         }
 
-        public virtual void DeductMonthlyExpenses(int MonthlyExpense)
+        public virtual void DeductMonthlyExpenses()
         {
-            AccountValue -= MonthlyExpense;
+            AccountValue -= rs.MonthlyExpenses;
         }
 
         public virtual void ProgressMonth()
@@ -84,8 +101,7 @@ namespace RetirementProjector
             AddMonthlyContribution(MonthlyContribution);
         }
 
-        public double MonthlyExpenses { get; set; }
+   
 
-        public abstract bool CanWithdraw();
     }
 }

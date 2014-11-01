@@ -61,9 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountBase.cs" />
-    <Compile Include="InvestmentAccount.cs" />
+    <Compile Include="AccountTypes\InvestmentAccount.cs" />
+    <Compile Include="Helpers\ProjectorHelpers.cs" />
     <Compile Include="RetirementProjectorProcessor.cs" />
-    <Compile Include="RothIRA.cs" />
+    <Compile Include="AccountTypes\RothIRA.cs" />
     <Compile Include="RetirementProjectorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,7 +74,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RetirementSettings.cs" />
-    <Compile Include="StandardRetirementAccount.cs" />
+    <Compile Include="AccountTypes\StandardRetirementAccount.cs" />
     <EmbeddedResource Include="RetirementProjectorForm.resx">
       <DependentUpon>RetirementProjectorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +102,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

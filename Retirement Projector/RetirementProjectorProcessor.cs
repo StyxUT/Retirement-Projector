@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RetirementProjector.Helpers;
 
 namespace RetirementProjector
 {
@@ -28,10 +29,18 @@ namespace RetirementProjector
            
             DateTime retirementDate = rs.BirthDate.AddMonths((12 * 59) + 6); // number of months from birth until age 59.5
 
-            for (DateTime projectionDate = DateTime.Now; projectionDate < retirementDate; projectionDate = projectionDate.AddMonths(1))
-            {
-                //do work here
-            }
+            
+            rs.CurentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
+            //for (DateTime projectionDate = DateTime.Now; projectionDate < retirementDate; projectionDate = projectionDate.AddMonths(1))
+            //{
+                foreach (AccountBase account in accounts)
+                { 
+                    if (account.CanWithdraw())
+                       account.DeductMonthlyExpenses();
+                    break;
+                }
+                AdvanceMonth(accounts);
+            //}
         
         }
 
