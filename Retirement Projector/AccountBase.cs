@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetirementProjector
 {
+    [Serializable]
     public abstract class AccountBase
     {
         /// <summary>
@@ -14,7 +15,7 @@ namespace RetirementProjector
         /// <param name="_RetirementSettings">Global settings object</param>
         /// <param name="_AccountValue">Current account value.</param>
         /// <param name="_AvailabilityAge">Age at which full amount is available.</param>
-        /// <param name="_ARR">Anual Rate of Return.</param>
+        /// <param name="_ARR">Annual Rate of Return.</param>
         /// <param name="_AccountName">Name of retirement account.</param>
         /// <param name="_MonthlyContribution">Amount contributed each month.</param>
         protected AccountBase(RetirementSettings _RetirementSettings, decimal _AccountValue, decimal _AvailabilityAge, decimal _ARR, string _AccountName, decimal _MonthlyContribution, decimal _MonthlyExpenses)
@@ -69,7 +70,7 @@ namespace RetirementProjector
         { 
             bool canWithdraw = false;
 
-            if (rs.CurentProjectionAge >= AvailabilityAge && AccountValue >= rs.MonthlyExpenses)
+            if (rs.CurrentProjectionAge >= AvailabilityAge && AccountValue >= rs.MonthlyExpenses)
                 canWithdraw = true;
 
             return canWithdraw;

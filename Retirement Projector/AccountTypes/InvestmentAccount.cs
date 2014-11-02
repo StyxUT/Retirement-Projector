@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetirementProjector
 {
+    [Serializable]
     public class InvestmentAccount : AccountBase
     {
         public InvestmentAccount(RetirementSettings _RetirementSettings, decimal _AccountValue, decimal _AvailabilityAge, decimal _ARR, string _AccountName, decimal _MonthlyContribution, decimal _MonthlyExpenses)

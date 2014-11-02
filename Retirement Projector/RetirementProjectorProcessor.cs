@@ -28,7 +28,7 @@ namespace RetirementProjector
 
             DateTime retirementDate = rs.BirthDate.AddMonths((12 * 59) + 6); // number of months from birth until age 59.5
 
-            rs.CurentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
+            rs.CurrentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
             //for (DateTime projectionDate = DateTime.Now; projectionDate < retirementDate; projectionDate = projectionDate.AddMonths(1))
             //{
                 //foreach (AccountBase account in accounts)
@@ -41,7 +41,7 @@ namespace RetirementProjector
             rs.BirthDate = DateTime.Parse("10/10/1972");
             rs.CurentProjectionDate = DateTime.Parse("4/10/2032");
 
-                rs.CurentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
+                rs.CurrentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
 
                 AdvanceMonth(accounts);
             //}
@@ -53,9 +53,9 @@ namespace RetirementProjector
             foreach (AccountBase account in Accounts)
             {
                 account.ProgressMonth();
-                OutputAccountData(account);
-                rs.CurentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
+                //OutputAccountData(account);
             }
+            rs.CurrentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
         }
         
         private void OutputAccountData(AccountBase Account)

@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="AccountBase.cs" />
     <Compile Include="AccountTypes\InvestmentAccount.cs" />
+    <Compile Include="Helpers\GenericCopier.cs" />
     <Compile Include="Helpers\ProjectorHelpers.cs" />
     <Compile Include="RetirementProjectorProcessor.cs" />
     <Compile Include="AccountTypes\RothIRA.cs" />

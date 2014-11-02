@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetirementProjector
 {
+    [Serializable]
     public class RothIRA : AccountBase
     {
         RetirementSettings rs;
@@ -23,9 +24,9 @@ namespace RetirementProjector
         {
             bool canWithdraw = false;
 
-            if (rs.CurentProjectionAge < 59.5M && PreRetirementAccountValue >= rs.MonthlyExpenses)
+            if (rs.CurrentProjectionAge < 59.5M && PreRetirementAccountValue >= rs.MonthlyExpenses)
                 canWithdraw = true;
-            else if (rs.CurentProjectionAge >= 59.5M && AccountValue >= rs.MonthlyExpenses)
+            else if (rs.CurrentProjectionAge >= 59.5M && AccountValue >= rs.MonthlyExpenses)
                 canWithdraw = true;
             else
                 canWithdraw = false;

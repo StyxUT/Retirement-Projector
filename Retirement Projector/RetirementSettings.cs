@@ -4,6 +4,7 @@ using System.ComponentModel;
 
 namespace RetirementProjector
 {
+    [Serializable]
     [DefaultPropertyAttribute("SaveOnClose")]
     public class RetirementSettings
     {
@@ -17,7 +18,7 @@ namespace RetirementProjector
         public DateTime CurentProjectionDate { get; set; }
 
         [DescriptionAttribute("Current DateTime projections are based on.")]
-        public decimal CurentProjectionAge { get; set; }
+        public decimal CurrentProjectionAge { get; set; }
 
         [DefaultValue(2000),
         DescriptionAttribute("Current monthly expenses.\nExclude any expenses that wont be present at retirement./n E.g Mortgage, Work commute.")]
