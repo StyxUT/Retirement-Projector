@@ -17,5 +17,12 @@ namespace RetirementProjector
             return projectionAge;
      
         }
+
+        public static bool InRetirement(DateTime retirementDate, DateTime projectionDate)
+        {
+            if (retirementDate <= projectionDate)
+                return true;
+            return false;
+        }
     }
 }

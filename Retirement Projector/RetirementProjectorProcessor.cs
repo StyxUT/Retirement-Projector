@@ -26,7 +26,7 @@ namespace RetirementProjector
             accounts.Add(new InvestmentAccount(rs, 20000, 0M, 0.14M, "Lending Club", 160M, rs.MonthlyExpenses));
             accounts.Add(new StandardRetirementAccount(rs, 20000, 0M, 0.14M, "Fidelity IRA", 160M, rs.MonthlyExpenses));
 
-            DateTime retirementDate = rs.BirthDate.AddMonths((12 * 59) + 6); // number of months from birth until age 59.5
+            rs.RetirementDate = rs.BirthDate.AddMonths((12 * 59) + 6); // number of months from birth until age 59.5
 
             rs.CurrentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
             //for (DateTime projectionDate = DateTime.Now; projectionDate < retirementDate; projectionDate = projectionDate.AddMonths(1))
@@ -38,12 +38,12 @@ namespace RetirementProjector
                 //    break;
                 //}
 
-            rs.BirthDate = DateTime.Parse("10/10/1972");
-            rs.CurentProjectionDate = DateTime.Parse("4/10/2032");
-
                 rs.CurrentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
 
-                AdvanceMonth(accounts);
+                for (int i = 0; i < 5; i++)
+                {
+                    AdvanceMonth(accounts);
+                }
             //}
         }
 
@@ -53,14 +53,17 @@ namespace RetirementProjector
             foreach (AccountBase account in Accounts)
             {
                 account.ProgressMonth();
-                //OutputAccountData(account);
             }
             rs.CurrentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
+            OutputAccountData(Accounts);
         }
-        
-        private void OutputAccountData(AccountBase Account)
+
+        private void OutputAccountData(List<AccountBase> Accounts)
         {
-            MessageBox.Show(String.Format("Account Name:  {0}\nAccount Value:  {1}", Account.AccountName, Account.AccountValue));
+            foreach (AccountBase account in Accounts)
+            {
+                MessageBox.Show(String.Format("Account Name:  {0}\nAccount Value:  {1}", account.AccountName, account.AccountValue));
+            }
         }
     }
 }

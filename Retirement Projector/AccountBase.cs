@@ -95,7 +95,10 @@ namespace RetirementProjector
         {
             // calculate ROI before adding in monthly contribution
             AddMonthlyROI(AnnualReturnRate / 12);
-            AddMonthlyContribution(MonthlyContribution);
+            
+            if(!ProjectionHelpers.InRetirement(rs., rs.CurentProjectionDate)
+                AddMonthlyContribution(MonthlyContribution);
+
         }
 
    

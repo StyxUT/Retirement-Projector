@@ -26,7 +26,7 @@ namespace RetirementProjectorUnitTests
         }
 
         [Test]
-        public void AllAccountsAdvanceMonth()
+        public void AllAccountsAdvanceMonthDate()
         {
             bool monthAdvanced = true;
 
@@ -57,5 +57,6 @@ namespace RetirementProjectorUnitTests
             rs.CurrentProjectionAge = ProjectionHelpers.CalculateProjectionAge(rs.BirthDate, rs.CurentProjectionDate);
             Assert.AreEqual(rs.CurrentProjectionAge, 59.5M);
         }
+
     }
 }
