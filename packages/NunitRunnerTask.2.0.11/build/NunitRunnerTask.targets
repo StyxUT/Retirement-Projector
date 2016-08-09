@@ -1,0 +1,52 @@
+﻿<Project DefaultTargets="RunNunitTest" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    
+  <UsingTask TaskName="NunitRunnerTask" AssemblyFile="NunitRunnerTask.dll" />
+  <PropertyGroup>
+    <AssemblyExtension>.dll</AssemblyExtension>
+    <ProduceCoverage    Condition="'$(ProduceCoverage)' == ''">false</ProduceCoverage>
+    <Processor          Condition="'$(Processor)' == ''">x64</Processor>
+    <TestRunner         Condition="'$(TestRunner)' == ''">Nunit</TestRunner>
+    <OutputReportPaths  Condition="'$(OutputReportPaths)' == ''">$(SolutionDir)</OutputReportPaths>
+    <DisableRetry       Condition="'$(DisableRetry)' == ''">true</DisableRetry>    
+    <OpenCoverPath      Condition="'$(OpenCoverPath)' == ''">$(MSBuildThisFileDirectory)OpenCover\OpenCover.Console.exe</OpenCoverPath>
+    <NunitPath          Condition="'$(NunitPath)' == ''">$(MSBuildThisFileDirectory)Nunit</NunitPath>
+    <XunitPath          Condition="'$(XunitPath)' == ''">$(MSBuildThisFileDirectory)xunit.net</XunitPath>
+    
+    <NunitTestFilter    Condition="'$(NunitTestFilter)' == ''"></NunitTestFilter>
+    <BreakBuildOnFailedTests    Condition="'$(BreakBuildOnFailedTests)' == ''">true</BreakBuildOnFailedTests>
+    <AssembliesToTest   Condition="'$(AssembliesToTest)' == ''">$(OutputPath)$(AssemblyName)$(AssemblyExtension)</AssembliesToTest>
+    <AssemblyName       Condition="'$(AssemblyName)' == ''">data</AssemblyName>
+    <NunitTSServer       Condition="'$(NunitTSServer)' == ''">$(MSBuildThisFileDirectory)NunitTSServer\NunitTSServer.exe</NunitTSServer>
+    <TSModelFolder       Condition="'$(TSModelFolder)' == ''"></TSModelFolder>
+    <TSBinFolder       Condition="'$(TSBinFolder)' == ''"></TSBinFolder>
+    <DontKillTs       Condition="'$(DontKillTs)' == ''">false</DontKillTs>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(OutputType)' == 'WinExe'">
+    <AssemblyExtension>.exe</AssemblyExtension>
+  </PropertyGroup>
+  
+  <Target Name="RunNunitTest" AfterTargets="AfterBuild" Condition="'$(NunitRunnerTaskEnabled)' != 'FALSE'">
+  <Message Text="Run Nunit Test Assembly $(AssembliesToTest)" Importance="High" />
+  <Message Text="ProjectDir $(ProjectDir)" Importance="High" />
+
+  <NunitRunnerTask NunitPath="$(NunitPath)"
+                  XunitPath="$(XunitPath)"
+                  OpenCoverPath="$(OpenCoverPath)"
+                  TestRunner="$(TestRunner)"
+                  Processor="$(Processor)"
+                  NunitTestFilter="$(NunitTestFilter)"
+                  ProjectDir="$(ProjectDir)"
+                  OutputReportPaths="$(OutputReportPaths)"
+                  CoverageReportFormat="$(AssemblyName).coverage"
+                  UnitTestReportFormat="$(AssemblyName).unittest.report"
+                  AssembliesToTest="$(AssembliesToTest)"
+                  ProduceCoverage="$(ProduceCoverage)"
+                  NunitTSServer="$(NunitTSServer)"
+                  TSModelFolder="$(TSModelFolder)"
+                  TSBinFolder="$(TSBinFolder)"
+                  BreakBuildOnFailedTests="$(BreakBuildOnFailedTests)"
+                  DontKillTs="$(DontKillTs)"/>
+    </Target>
+</Project>
